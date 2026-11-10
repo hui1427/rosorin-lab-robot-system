@@ -1,22 +1,23 @@
 # ROSOrin 机器人代码库
 
-按用途分成两份，供逐层浏览和后续集成。
+- [STM｜此前的代码资料](STM/)
+- [ROS｜按功能模块浏览代码](ROS/源码/)
+- [ROS｜原始功能包目录](ROS/src/)
 
-- [STM｜此前的代码资料](STM/)：保留原有资料，包含 STM32 固件镜像、控制板通信代码，以及此前一起整理的 ROS 代码；固件镜像不等于 STM32 固件工程源码。
-- [ROS｜本次提供的 ROS 代码](ROS/)：保留原有 ROS 功能包层级，以下按用途导航。
-
-| 机器人模块 | 对应代码 |
+| 模块 | 对应代码 |
 | --- | --- |
-| 主控启动 | [bringup](ROS/src/bringup/) |
-| 底盘、控制板、机械臂及舵机 | [driver](ROS/src/driver/) |
-| 传感器与遥控 | [peripherals](ROS/src/peripherals/) |
-| 标定 | [calibration](ROS/src/calibration/) |
-| 建图和导航 | [slam](ROS/src/slam/) · [navigation](ROS/src/navigation/) |
-| 视觉与应用 | [example](ROS/src/example/) · [app](ROS/src/app/) |
-| 大模型与任务 | [large_models](ROS/src/large_models/) · [large_models_examples](ROS/src/large_models_examples/) |
-| 语音 | [xf_mic_asr_offline](ROS/src/xf_mic_asr_offline/) |
-| 机器人模型和仿真 | [simulations](ROS/src/simulations/) |
-| 多机器人 | [multi](ROS/src/multi/) |
-| 场景集成与接口 | [openclaw_controller](ROS/src/openclaw_controller/) · [interfaces](ROS/src/interfaces/) |
+| 系统启动与消息接口 | [主控与系统架构](ROS/源码/00_主控与系统架构/) |
+| 底盘控制与标定 | [底盘与标定](ROS/源码/01_底盘与标定/) |
+| 控制板通信 | [STM32与硬件通信](ROS/源码/02_STM32与硬件通信/) |
+| 机械臂与舵机 | [机械臂与舵机](ROS/源码/03_机械臂与舵机/) |
+| 传感器与遥控 | [传感器与遥控](ROS/源码/04_传感器与遥控/) |
+| 基础应用与视觉 | [基础应用与视觉](ROS/源码/05_基础应用与视觉/) |
+| 建图与导航 | [建图与导航](ROS/源码/06_建图与导航/) |
+| 大模型与语音 | [AI与语音](ROS/源码/07_AI与语音/) |
+| 多机器人 | [多机器人协同](ROS/源码/08_多机器人协同/) |
+| 机器人模型与仿真 | [机器人模型与仿真](ROS/源码/09_机器人模型与仿真/) |
+| 通用工具 | [公共工具](ROS/源码/10_公共工具/) |
+| 实验 | [实验与二次开发](ROS/源码/11_实验与二次开发/) |
+| 场景集成 | [综合场景集成](ROS/源码/12_综合场景集成/) |
 
-ROS 文件由单独附件及历史文件清单恢复：同名文件的归属依据顺序推断，尚未与原始压缩包逐文件哈希核对；原始密钥未上传。部分模型资源未上传，代码未进行编译或实机验证，具体状态见 [ROS 资源说明](ROS/README.md)。
+ROS/源码是按功能分类的实际代码副本；ROS/src 保留原功能包层级。STM 保存此前资料，其中固件镜像不代表已取得 STM32 工程源码。来源与缺失模型见 [ROS 说明](ROS/README.md)。
