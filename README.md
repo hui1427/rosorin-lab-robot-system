@@ -1,47 +1,26 @@
-# ROSOrin Lab｜机器人系统开发资料
+# ROSOrin Lab｜机器人源码库
 
-ROS 2 Based Autonomous Mobile Manipulation Robot System
+按功能浏览 ROSOrin 机器人源码，并保留厂商原始目录结构。
 
-> **V1.2 是待技术验收的分析底稿。** 完整本地源码尚未在本轮逐文件复核，未进行编译、仿真或实机验证。涉及固件的接口描述不等同于固件源码或内部实现。
+## 按模块浏览
 
-## 中文目录总览
-
-```text
-rosorin-lab-robot-system/
-├── README.md                    项目首页与中文导航
-└── docs/                        V1.2 分析文档
-    ├── source-index/            源码目录、文件功能映射与参考链接
-    ├── command/                 命令索引
-    ├── architecture/            系统架构、启动流程和模块关系图
-    ├── modules/                 按系统功能分类的分析
-    ├── hardware/                硬件和 STM32 映射
-    ├── reuse/                   源码复用指南
-    ├── issues/                  已知问题及待核实事项
-    └── provenance/              来源、证据与修订记录
-```
-
-## 功能模块导航
-
-| 模块 | 分析文档 |
+| 模块 | 代码 |
 | --- | --- |
-| 系统与启动 | [系统](docs/modules/system.md)、[启动流程](docs/architecture/startup_flow.md) |
-| 底盘与运动控制 | [运动](docs/modules/motion.md) |
-| 控制板与硬件 | [硬件](docs/modules/hardware.md)、[STM32 分析](docs/hardware/stm32_analysis.md) |
-| 传感器与感知 | [传感器](docs/modules/sensors.md)、[感知](docs/modules/perception.md) |
-| 建图与导航 | [导航](docs/modules/navigation.md) |
-| 机械臂与舵机 | [机械臂](docs/modules/manipulation.md) |
-| AI 与语音应用 | [AI](docs/modules/ai.md) |
-| 安全、仿真 | [安全](docs/modules/safety.md)、[仿真](docs/modules/simulation.md) |
+| 主控、启动和接口 | [主控与系统架构](源码/00_主控与系统架构/) |
+| 底盘运动 | [底盘运动控制](源码/01_底盘运动控制/) |
+| STM32 与硬件通信 | [STM32与硬件通信](源码/02_STM32与硬件通信/) |
+| 机械臂与舵机 | [机械臂与舵机](源码/03_机械臂与舵机/) |
+| 传感器 | [传感器驱动](源码/04_传感器驱动/) |
+| 视觉 | [计算机视觉](源码/05_计算机视觉/) |
+| 状态估计和坐标 | [状态估计与坐标](源码/06_状态估计与坐标/) |
+| 建图 | [SLAM建图](源码/07_SLAM建图/) |
+| 导航 | [自主导航](源码/08_自主导航/) |
+| AI 和语音 | [AI与语音](源码/09_AI与语音/) |
+| 示例和工具 | [示例与工具](源码/10_示例与工具/) |
+| 仿真和模型 | [仿真与机器人模型](源码/11_仿真与机器人模型/) |
 
-## 索引与证据
+## 原始源码
 
-- [文档总览和使用边界](docs/README.md)
-- [完整源码目录](docs/source-index/complete_source_tree.md) · [文件功能映射](docs/source-index/file_function_mapping.csv) · [参考链接表](docs/source-index/github_links.csv)
-- [命令索引](docs/command/command_index.md) · [系统总览](docs/architecture/system_overview.md) · [模块关系图](docs/architecture/module_relationship.md)
-- [来源清单](docs/provenance/evidence/SOURCE_MANIFEST.md) · [V1.2 修订记录](docs/provenance/V1.2_REVISION_LOG.md) · [已知问题](docs/issues/known_issues.md)
+[原始源码](原始源码/) 保留现有厂商 GitHub `Hiwonder/ROSOrin-Pro` 的 `orin-nx` 分支固定提交 `6c2a621fe628cc4928c48fc11d8d982594d471eb` 的目录。该快照与其他来源的 ROS 2 源码版本可能不同。
 
-## 整理原则
-
-- main 保存分析文档；原厂资料库及程序目录保留在私有的 [V1 分支](https://github.com/hui1427/rosorin-lab-robot-system/tree/feature/official-source-library-v1)，未搬动或修改原厂源码。
-- 分析采用本地源码历史索引；厂商 GitHub 固定提交仅作对照，不能视作同一版本。各结论以文档中的证据和待核实说明为准。
-- 本资料中的命令和路径不代表已在本机或机器人上验证；启动流程中的路径疑点见[文档总览](docs/README.md)。
+`源码/` 是按功能整理的浏览副本，相对导入和资源路径可能失效，不能直接当作完整 ROS 工作空间。STM32 中的固件镜像不等同于 STM32 固件工程源码。本次未编译、仿真或实机验证。
