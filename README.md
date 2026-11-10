@@ -1,26 +1,22 @@
-# ROSOrin Lab｜机器人源码库
+# ROSOrin 机器人代码库
 
-按功能浏览 ROSOrin 机器人源码，并保留厂商原始目录结构。
+按用途分成两份，供逐层浏览和后续集成。
 
-## 按模块浏览
+- [STM｜此前的代码资料](STM/)：保留原有资料，包含 STM32 固件镜像、控制板通信代码，以及此前一起整理的 ROS 代码；固件镜像不等于 STM32 固件工程源码。
+- [ROS｜本次提供的 ROS 代码](ROS/)：保留原有 ROS 功能包层级，以下按用途导航。
 
-| 模块 | 代码 |
+| 机器人模块 | 对应代码 |
 | --- | --- |
-| 主控、启动和接口 | [主控与系统架构](源码/00_主控与系统架构/) |
-| 底盘运动 | [底盘运动控制](源码/01_底盘运动控制/) |
-| STM32 与硬件通信 | [STM32与硬件通信](源码/02_STM32与硬件通信/) |
-| 机械臂与舵机 | [机械臂与舵机](源码/03_机械臂与舵机/) |
-| 传感器 | [传感器驱动](源码/04_传感器驱动/) |
-| 视觉 | [计算机视觉](源码/05_计算机视觉/) |
-| 状态估计和坐标 | [状态估计与坐标](源码/06_状态估计与坐标/) |
-| 建图 | [SLAM建图](源码/07_SLAM建图/) |
-| 导航 | [自主导航](源码/08_自主导航/) |
-| AI 和语音 | [AI与语音](源码/09_AI与语音/) |
-| 示例和工具 | [示例与工具](源码/10_示例与工具/) |
-| 仿真和模型 | [仿真与机器人模型](源码/11_仿真与机器人模型/) |
+| 主控启动 | [bringup](ROS/src/bringup/) |
+| 底盘、控制板、机械臂及舵机 | [driver](ROS/src/driver/) |
+| 传感器与遥控 | [peripherals](ROS/src/peripherals/) |
+| 标定 | [calibration](ROS/src/calibration/) |
+| 建图和导航 | [slam](ROS/src/slam/) · [navigation](ROS/src/navigation/) |
+| 视觉与应用 | [example](ROS/src/example/) · [app](ROS/src/app/) |
+| 大模型与任务 | [large_models](ROS/src/large_models/) · [large_models_examples](ROS/src/large_models_examples/) |
+| 语音 | [xf_mic_asr_offline](ROS/src/xf_mic_asr_offline/) |
+| 机器人模型和仿真 | [simulations](ROS/src/simulations/) |
+| 多机器人 | [multi](ROS/src/multi/) |
+| 场景集成与接口 | [openclaw_controller](ROS/src/openclaw_controller/) · [interfaces](ROS/src/interfaces/) |
 
-## 原始源码
-
-[原始源码](原始源码/) 保留现有厂商 GitHub `Hiwonder/ROSOrin-Pro` 的 `orin-nx` 分支固定提交 `6c2a621fe628cc4928c48fc11d8d982594d471eb` 的目录。该快照与其他来源的 ROS 2 源码版本可能不同。
-
-`源码/` 是按功能整理的浏览副本，相对导入和资源路径可能失效，不能直接当作完整 ROS 工作空间。STM32 中的固件镜像不等同于 STM32 固件工程源码。本次未编译、仿真或实机验证。
+ROS 文件由单独附件及历史文件清单恢复：同名文件的归属依据顺序推断，尚未与原始压缩包逐文件哈希核对；原始密钥未上传。部分模型资源未上传，代码未进行编译或实机验证，具体状态见 [ROS 资源说明](ROS/README.md)。
